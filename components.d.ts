@@ -261,6 +261,8 @@ declare module '@vue/runtime-core' {
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NMenu: typeof import('naive-ui')['NMenu']
+    NpmmirrorCheatsheet: typeof import('./src/tools/npmmirror-cheatsheet/npmmirror-cheatsheet.vue')['default']
+    'NpmmirrorMemo.content': typeof import('./src/tools/npmmirror-cheatsheet/npmmirror-memo.content.md')['default']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
     NSpace: typeof import('naive-ui')['NSpace']
     NumeronymGenerator: typeof import('./src/tools/numeronym-generator/numeronym-generator.vue')['default']

@@ -75,6 +75,7 @@ import { tool as energyComputer } from './energy-computer';
 import { tool as cssXpathConverter } from './css-xpath-converter';
 import { tool as cssSelectorsMemo } from './css-selectors-memo';
 import { tool as xpathMemo } from './xpath-memo';
+import { tool as npmmirrorCheatsheet } from './npmmirror-cheatsheet';
 import { tool as daysCalculator } from './days-calculator';
 import { tool as dateDurationCalculator } from './date-duration-calculator';
 import { tool as macAddressConverter } from './mac-address-converter';
@@ -416,6 +417,7 @@ export const toolsByCategory: ToolCategory[] = [
     components: [
       gitMemo,
       markdownCheatsheet,
+      npmmirrorCheatsheet,
       randomPortGenerator,
       crontabGenerator,
       jsonViewer,
