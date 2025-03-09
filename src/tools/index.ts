@@ -258,6 +258,9 @@ import { tool as ipRangeToCidr } from './ip-range-to-cidr';
 import { tool as ipv6AddressConverter } from './ipv6-address-converter';
 import { tool as jsonToObject } from './json-to-object';
 import { tool as micTester } from './mic-tester';
+import { tool as catboxMoe } from './catbox-moe';
+import { tool as squooshApp } from './squoosh-app';
+import { tool as speedtestUstc } from './speedtest-ustc';
 
 export const toolsByCategory: ToolCategory[] = [
   {
@@ -410,6 +413,8 @@ export const toolsByCategory: ToolCategory[] = [
       imageExifReader,
       aspectRatioCalculator,
       imageResizer,
+      catboxMoe,
+      squooshApp,
     ],
   },
   {
@@ -501,6 +506,7 @@ export const toolsByCategory: ToolCategory[] = [
       sipAuth,
       xVrSpamcauseDecoder,
       myIp,
+      speedtestUstc,
     ],
   },
   {
