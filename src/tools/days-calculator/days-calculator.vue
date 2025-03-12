@@ -8,7 +8,7 @@ const now = Date.now();
 const inputDateRange = ref<[number, number]>([now, now + 86400]);
 
 const browserTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const allTimezones = Object.values(ctz.getAllTimezones()).map((tz: any) => ({
+const allTimezones = Object.values(ctz.getAllTimezones()).map(tz => ({
   value: tz.name,
   label: `${tz.name === browserTimezone ? 'Browser TZ - ' : ''}${tz.name} (${tz.utcOffset === tz.dstOffset ? tz.utcOffsetStr : `${tz.utcOffsetStr}/${tz.dstOffsetStr}`})`,
 }));
@@ -42,6 +42,7 @@ const resultDaysDiff = computed(() => {
     });
   }
   catch (e: any) {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
     error.value = e.toString();
     return null;
   }
