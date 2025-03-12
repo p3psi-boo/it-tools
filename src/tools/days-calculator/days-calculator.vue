@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ctz from 'countries-and-timezones';
+import * as ctz from 'countries-and-timezones';
 import { type Weekdays, allWeekDays, diffDateTimes, getSupportedCountries, getSupportedRegions, getSupportedStates } from './days-calculator.service';
 import { useQueryParamOrStorage } from '@/composable/queryParams';
 
@@ -8,7 +8,7 @@ const now = Date.now();
 const inputDateRange = ref<[number, number]>([now, now + 86400]);
 
 const browserTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const allTimezones = Object.values(ctz.getAllTimezones()).map(tz => ({
+const allTimezones = Object.values(ctz.getAllTimezones()).map((tz: any) => ({
   value: tz.name,
   label: `${tz.name === browserTimezone ? 'Browser TZ - ' : ''}${tz.name} (${tz.utcOffset === tz.dstOffset ? tz.utcOffsetStr : `${tz.utcOffsetStr}/${tz.dstOffsetStr}`})`,
 }));
@@ -62,45 +62,15 @@ const inputProps = {
         <n-date-picker v-model:value="inputDateRange" type="datetimerange" />
       </n-form-item>
 
-      <c-select
-        v-model:value="country"
-        label-position="left"
-        label-width="100px"
-        searchable
-        label="Country:"
-        :options="allCountries"
-        mb-1
-      />
-      <c-select
-        v-if="possibleStates?.length > 0"
-        v-model:value="state"
-        label-position="left"
-        label-width="100px"
-        searchable
-        label="State:"
-        :options="possibleStates"
-        placeholder="Select a specific state or let empty for general info"
-        mb-1
-      />
-      <c-select
-        v-if="possibleRegions?.length > 0"
-        v-model:value="region"
-        label-position="left"
-        label-width="100px"
-        searchable
-        label="Region:"
-        :options="possibleRegions"
-        mb-1
-      />
-      <c-select
-        v-model:value="businessTimezone"
-        label-position="left"
-        label-width="100px"
-        searchable
-        label="Timezone:"
-        :options="allTimezones"
-        mb-2
-      />
+      <c-select v-model:value="country" label-position="left" label-width="100px" searchable label="Country:"
+        :options="allCountries" mb-1 />
+      <c-select v-if="possibleStates?.length > 0" v-model:value="state" label-position="left" label-width="100px"
+        searchable label="State:" :options="possibleStates"
+        placeholder="Select a specific state or let empty for general info" mb-1 />
+      <c-select v-if="possibleRegions?.length > 0" v-model:value="region" label-position="left" label-width="100px"
+        searchable label="Region:" :options="possibleRegions" mb-1 />
+      <c-select v-model:value="businessTimezone" label-position="left" label-width="100px" searchable label="Timezone:"
+        :options="allTimezones" mb-2 />
 
       <div mb-2 flex items-baseline gap-2>
         <n-form-item label="Business Start Hour:" label-placement="left" flex-1>
@@ -146,13 +116,20 @@ const inputProps = {
         <input-copyable v-bind="inputProps" label="End Date" :value="resultDaysDiff.endDate" />
         <input-copyable v-bind="inputProps" label="End Date (ISO)" :value="resultDaysDiff.endDate.toISOString()" />
         <n-divider />
-        <input-copyable v-bind="inputProps" label="Total Difference Seconds" :value="resultDaysDiff.totalDifference.seconds" />
-        <input-copyable v-bind="inputProps" label="Total Difference Minutes" :value="resultDaysDiff.totalDifference.minutes" />
-        <input-copyable v-bind="inputProps" label="Total Difference Hours" :value="resultDaysDiff.totalDifference.hours" />
-        <input-copyable v-bind="inputProps" label="Total Difference Days" :value="resultDaysDiff.totalDifference.days" />
-        <input-copyable v-bind="inputProps" label="Total Difference Weeks" :value="resultDaysDiff.totalDifference.weeks" />
-        <input-copyable v-bind="inputProps" label="Total Difference Months" :value="resultDaysDiff.totalDifference.months" />
-        <input-copyable v-bind="inputProps" label="Total Difference Years" :value="resultDaysDiff.totalDifference.years" />
+        <input-copyable v-bind="inputProps" label="Total Difference Seconds"
+          :value="resultDaysDiff.totalDifference.seconds" />
+        <input-copyable v-bind="inputProps" label="Total Difference Minutes"
+          :value="resultDaysDiff.totalDifference.minutes" />
+        <input-copyable v-bind="inputProps" label="Total Difference Hours"
+          :value="resultDaysDiff.totalDifference.hours" />
+        <input-copyable v-bind="inputProps" label="Total Difference Days"
+          :value="resultDaysDiff.totalDifference.days" />
+        <input-copyable v-bind="inputProps" label="Total Difference Weeks"
+          :value="resultDaysDiff.totalDifference.weeks" />
+        <input-copyable v-bind="inputProps" label="Total Difference Months"
+          :value="resultDaysDiff.totalDifference.months" />
+        <input-copyable v-bind="inputProps" label="Total Difference Years"
+          :value="resultDaysDiff.totalDifference.years" />
         <input-copyable v-bind="inputProps" label="Total Difference" :value="resultDaysDiff.totalDifferenceFormatted" />
         <n-divider />
         <input-copyable v-bind="inputProps" label="Difference Seconds" :value="resultDaysDiff.differenceSeconds" />
