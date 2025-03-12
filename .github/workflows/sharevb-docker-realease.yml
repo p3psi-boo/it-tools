@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - chore/all-my-stuffs
+      - selfhost
 
 jobs:
   ci:
