@@ -26,7 +26,6 @@ const completionMultiplier = computed(() => outputPrice.value / (inputPrice.valu
 
     <n-divider />
 
-
     <n-form-item label="基准价格 ($/1k tokens，默认值为 OneAPI/NewAPI 的 0.002$/1k tokens):">
       <n-input-number v-model:value="basePrice" :min="0" :step="0.0001" :precision="6" />
     </n-form-item>
