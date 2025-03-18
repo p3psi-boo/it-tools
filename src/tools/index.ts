@@ -28,6 +28,11 @@ import { tool as floatingPointNumberConverter } from './floating-point-number-co
 import { tool as snowflakeIdExtractor } from './snowflake-id-extractor';
 import { tool as qrContactInfoGenerator } from './qr-contact-info-generator';
 import { tool as emailNormalizer } from './email-normalizer';
+import { tool as parquetsReader } from './parquets-reader';
+import { tool as fortuneWheel } from './fortune-wheel';
+import { tool as cardPicker } from './card-picker';
+import { tool as coinFlipper } from './coin-flipper';
+import { tool as diceRoller } from './dice-roller';
 import { tool as hexConverter } from './hex-converter';
 import { tool as sharepointDecoder } from './sharepoint-decoder';
 import { tool as jwtGenerator } from './jwt-generator';
@@ -162,6 +167,7 @@ import { tool as cssPrettifier } from './css-prettifier';
 import { tool as htmlPrettifier } from './html-prettifier';
 import { tool as x509CertificateGenerator } from './x509-certificate-generator';
 import { tool as ipIncludeExclude } from './ip-include-exclude';
+import { tool as harSanitizer } from './har-sanitizer';
 import { tool as pdfSignatureChecker } from './pdf-signature-checker';
 import { tool as uuidConverter } from './uuid-converter';
 import { tool as numeronymGenerator } from './numeronym-generator';
@@ -466,6 +472,7 @@ export const toolsByCategory: ToolCategory[] = [
       nginxFormatter,
       regexTester,
       regexMemo,
+      parquetsReader,
       commonRegexMemo,
       stacktracePrettier,
       xpathTester,
@@ -514,6 +521,7 @@ export const toolsByCategory: ToolCategory[] = [
       xVrSpamcauseDecoder,
       myIp,
       speedtestUstc,
+      harSanitizer,
     ],
   },
   {
@@ -528,6 +536,10 @@ export const toolsByCategory: ToolCategory[] = [
       dataStorageUnitConverter,
       ttlCalculator,
       angleConverter,
+      diceRoller,
+      coinFlipper,
+      cardPicker,
+      fortuneWheel,
     ],
   },
   {
